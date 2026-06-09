@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Monsters | 北欧精灵森林 · POP MART Labubu 官方主题</title>
+<meta name="description" content="欢迎来到 The Monsters 精灵森林——由龙家昇（Kasing Lung）创作的北欧精灵世界。探索Labubu、Zimomo等9个精灵角色，了解盲盒系列与森林传说。泡泡玛特POP MART出品。">
+<meta property="og:title" content="The Monsters | 北欧精灵森林">
+<meta property="og:description" content="Labubu 与精灵们的北欧森林世界——角色图鉴、盲盒系列、森林传说。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"The Monsters 精灵森林","description":"Labubu 与精灵们的北欧森林世界","brand":{"@type":"Brand","name":"POP MART"},"creator":{"@type":"Person","name":"龙家昇 (Kasing Lung)"}}
+</script>
+<style>
+:root {
+  --forest-dark: #0F1F0F;
+  --forest-deep: #1A3A1A;
+  --forest: #2D5A2D;
+  --forest-mid: #3D7A3D;
+  --forest-light: #5A9E5A;
+  --forest-pale: #8CBA8C;
+  --moss: #6B8F4A;
+  --moss-light: #A8C492;
+  --nordic-white: #F5F2EB;
+  --nordic-cream: #EBE5D8;
+  --nordic-linen: #D9D2C2;
+  --wood: #8B6914;
+  --wood-light: #C4A23C;
+  --gold: #D4B04C;
+  --gold-pale: #F0E2BC;
+  --text-dark: #0F1F0F;
+  --text-mid: #3D5A3D;
+  --text-light: #6B8E6B;
+  --shadow: rgba(15, 31, 15, 0.12);
+  --shadow-strong: rgba(15, 31, 15, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 50px;
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 28px;
+  --space-xl: 36px;
+  --space-2xl: 56px;
+  --space-3xl: 70px;
+  --space-4xl: 100px;
+  --font-scale: 1.25;
+  --text-xs: 0.75rem;
+  --text-sm: 0.85rem;
+  --text-base: 0.95rem;
+  --text-lg: 1.05rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.8rem;
+  --text-3xl: clamp(2rem, 4.5vw, 3rem);
+  --text-4xl: clamp(2.8rem, 7vw, 5rem);
+  --z-particles: 9999;
+  --z-overlay: 1500;
+  --z-mobile-menu: 2000;
+  --z-navbar: 1000;
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', 'Fredoka', sans-serif;
+  background: var(--nordic-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+#particleCanvas {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: var(--z-particles);
+}
+
+.skip-link {
+  position: absolute; top: -100px; left: 8px; z-index: 10000;
+  padding: 12px 24px; background: var(--gold); color: var(--forest-dark);
+  font-weight: 600; border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  transition: top 0.3s ease;
+}
+.skip-link:focus { top: 0; }
+
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-navbar);
+  padding: 18px 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: background 0.5s ease, padding 0.5s ease, box-shadow 0.5s ease;
+}
+.navbar.scrolled {
+  background: rgba(15, 31, 15, 0.94);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  padding: 10px 5%;
+  box-shadow: 0 4px 30px var(--shadow-strong);
+}
+.logo {
+  display: flex; align-items: center; gap: var(--space-sm);
+  font-family: 'Fredoka', sans-serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--nordic-white);
+}
+.logo-img { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
+.logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.85); font-size: 0.92rem; font-weight: 500;
+  position: relative; transition: color 0.3s ease;
+  letter-spacing: 0.5px; padding: 4px 0;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width 0.3s var(--ease-smooth);
+  border-radius: 2px;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.hamburger { display: none; color: var(--nordic-white); font-size: 1.5rem; cursor: pointer; padding: 4px; }
+
+.mobile-menu {
+  position: fixed; top: 0; right: -100%; width: 75%; max-width: 320px; height: 100vh;
+  background: linear-gradient(180deg, var(--forest-dark) 0%, var(--forest-deep) 100%);
+  z-index: var(--z-mobile-menu); padding: 80px 36px;
+  transition: right 0.4s var(--ease-spring);
+  display: flex; flex-direction: column; gap: var(--lg);
+  overscroll-behavior: contain; overflow-y: auto;
+}
+.mobile-menu.active { right: 0; }
+.mobile-menu a { color: rgba(255,255,255,0.85); font-size: 1.1rem; font-weight: 500; transition: color 0.3s; }
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-close { position: absolute; top: 24px; right: 24px; color: var(--nordic-white); font-size: 1.5rem; cursor: pointer; padding: 4px; }
+
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: var(--z-overlay); opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.overlay.active { opacity: 1; pointer-events: auto; }
+
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; padding: 100px 5% 60px;
+}
+.hero-bg {
+  position: absolute; inset: -20%; z-index: 0;
+  will-change: transform;
+}
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(15,31,15,0.3) 0%, rgba(15,31,15,0.6) 40%, rgba(15,31,15,0.85) 100%);
+}
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 720px; color: var(--nordic-white); }
+.hero-content > * { opacity: 0; transform: translateY(24px); animation: heroFadeIn 0.8s var(--ease-spring) forwards; }
+.hero-content .hero-label { animation-delay: 0.1s; }
+.hero-content .hero-title { animation-delay: 0.25s; }
+.hero-content .hero-desc { animation-delay: 0.4s; }
+.hero-content .hero-buttons { animation-delay: 0.55s; }
+@keyframes heroFadeIn { to { opacity: 1; transform: translateY(0); } }
+.hero-label {
+  display: inline-block; padding: 8px 24px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius-xl); font-size: var(--text-sm); letter-spacing: 3px; margin-bottom: var(--lg);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.06);
+}
+.hero-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: var(--text-4xl);
+  font-weight: 700; line-height: 1.05; margin-bottom: 24px;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.4);
+}
+.hero-title span { color: var(--gold); }
+.hero-desc { font-size: var(--text-lg); opacity: 0.9; margin-bottom: var(--xl); line-height: 1.9; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 3;
+  color: rgba(255,255,255,0.6); font-size: var(--text-sm); letter-spacing: 1px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+@keyframes scrollBounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+.scroll-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+.btn {
+  padding: 14px 36px; border-radius: var(--radius-xl); font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: transform 0.35s ease, box-shadow 0.35s ease; display: inline-block;
+  position: relative; overflow: hidden; border: none; letter-spacing: 0.5px;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--wood-light));
+  color: var(--forest-dark); box-shadow: 0 4px 20px rgba(212,176,76,0.35);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(212,176,76,0.5); }
+.btn-primary:active { transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--nordic-white); border: 2px solid rgba(255,255,255,0.35); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.section { padding: var(--space-4xl) 5%; }
+.section-header { text-align: center; margin-bottom: var(--space-2xl); }
+.section-label {
+  display: inline-block; padding: var(--space-xs) var(--space-md);
+  background: linear-gradient(135deg, var(--forest-pale), var(--moss-light));
+  color: var(--forest-dark); border-radius: 30px; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 1.5px; margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 700; color: var(--forest-dark); margin-bottom: 16px;
+  line-height: 1.2;
+}
+.section-subtitle { font-size: var(--text-lg); color: var(--text-light); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+.stats-section {
+  background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-deep) 50%, #1A3A1A 100%);
+  padding: var(--space-3xl) 5%;
+  position: relative; overflow: hidden;
+}
+.stats-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(212,176,76,0.06) 0%, transparent 60%);
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+.stat-number {
+  font-family: 'Fredoka', sans-serif; font-size: 2.8rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--gold), var(--gold-pale));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label { font-size: var(--text-sm); color: rgba(255,255,255,0.8); margin-top: var(--space-xs); letter-spacing: 0.5px; }
+
+.story-section { background: var(--nordic-cream); }
+.story-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+.story-img { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 12px 40px var(--shadow); }
+.story-img img { width: 100%; height: auto; transition: transform 0.6s ease; }
+.story-img:hover img { transform: scale(1.03); }
+.story-content h3 { font-family: 'Fredoka', sans-serif; font-size: var(--text-2xl); color: var(--forest-dark); margin-bottom: var(--space-md); }
+.story-content p { color: var(--text-mid); margin-bottom: 16px; font-size: var(--text-base); line-height: 1.8; }
+.story-content p:last-of-type { margin-bottom: 24px; }
+.story-tags { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.story-tag {
+  padding: var(--space-xs) 16px; background: var(--nordic-white);
+  color: var(--forest-mid); border-radius: var(--radius-md); font-size: var(--text-xs); font-weight: 500;
+  border: 1px solid var(--forest-pale);
+}
+
+.char-section { background: var(--nordic-white); }
+.char-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lg); max-width: 1100px; margin: 0 auto; }
+.char-card {
+  background: var(--nordic-white); border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow); transition: transform 0.45s var(--ease-spring), box-shadow 0.45s ease;
+  border: 1px solid rgba(139,105,20,0.08);
+}
+.char-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px var(--shadow-strong); }
+.char-card-img { position: relative; overflow: hidden; aspect-ratio: 1; background: var(--nordic-cream); }
+.char-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.char-card:hover .char-card-img img { transform: scale(1.08); }
+.char-card-body { padding: 22px 24px; }
+.char-card-name { font-family: 'Fredoka', sans-serif; font-size: var(--text-xl); font-weight: 600; color: var(--forest-dark); margin-bottom: 2px; }
+.char-card-role { font-size: var(--text-sm); color: var(--forest-mid); font-weight: 500; margin-bottom: var(--space-sm); letter-spacing: 0.5px; }
+.char-card-desc { font-size: var(--text-sm); color: var(--text-mid); line-height: 1.7; margin-bottom: 14px; }
+.char-card-tags { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.char-card-tag {
+  padding: 4px 12px; background: linear-gradient(135deg, var(--forest-pale), var(--moss-light));
+  color: var(--forest-dark); border-radius: 14px; font-size: var(--text-xs); font-weight: 500;
+}
+
+.series-section { background: var(--nordic-cream); }
+.series-tabs { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+.series-tab {
+  padding: 10px 24px; border-radius: var(--radius-xl);
+  border: 2px solid var(--forest-pale);
+  background: transparent; color: var(--text-mid); font-size: var(--text-sm); font-weight: 500;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.series-tab:hover { background: var(--forest-pale); color: var(--forest-dark); }
+.series-tab.active {
+  background: linear-gradient(135deg, var(--forest-mid), var(--forest-light));
+  color: var(--nordic-white); border-color: var(--forest-mid);
+  box-shadow: 0 4px 12px rgba(61,122,61,0.3);
+}
+.series-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--lg); max-width: 1100px; margin: 0 auto; }
+.series-card {
+  background: var(--nordic-white); border-radius: var(--radius-md); overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow); transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease; cursor: pointer;
+}
+.series-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px var(--shadow-strong); }
+.series-card-img { position: relative; overflow: hidden; aspect-ratio: 1; background: var(--nordic-cream); }
+.series-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.series-card:hover .series-card-img img { transform: scale(1.08); }
+.series-card-tag {
+  position: absolute; top: 12px; right: 12px; padding: var(--space-xs) 14px; border-radius: var(--radius-md);
+  font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.5px;
+}
+.tag-new { background: linear-gradient(135deg, var(--forest-mid), var(--forest-light)); color: white; }
+.tag-limited { background: linear-gradient(135deg, var(--wood), var(--wood-light)); color: white; }
+.tag-classic { background: linear-gradient(135deg, var(--moss), var(--forest-pale)); color: white; }
+.tag-collab { background: linear-gradient(135deg, #8B5E3C, #B8865E); color: white; }
+.series-card-body { padding: var(--space-md); }
+.series-card-name { font-family: 'Fredoka', sans-serif; font-size: var(--text-lg); font-weight: 600; margin-bottom: 4px; color: var(--forest-dark); }
+.series-card-en { font-size: var(--text-xs); color: var(--text-light); margin-bottom: var(--space-sm); }
+.series-card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); }
+.series-card-count { font-size: var(--text-sm); color: var(--text-light); }
+.series-card-price { font-weight: 700; color: var(--forest); font-size: var(--text-lg); }
+.series-card-desc { font-size: var(--text-sm); color: var(--text-mid); line-height: 1.6; }
+
+.forest-section {
+  background: linear-gradient(180deg, var(--forest-dark) 0%, var(--forest-deep) 50%, #1A3A1A 100%);
+  position: relative;
+}
+.forest-section .section-title { color: var(--nordic-white); }
+.forest-section .section-subtitle { color: var(--forest-pale); }
+.forest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lg); max-width: 1100px; margin: 0 auto; }
+.forest-card {
+  background: rgba(255,255,255,0.06); border-radius: var(--radius-lg); padding: var(--xl) var(--lg);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.4s ease; position: relative; overflow: hidden;
+}
+.forest-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-8px); border-color: rgba(212,176,76,0.3); }
+.forest-card-icon { font-size: 2rem; margin-bottom: 18px; }
+.forest-card-title { font-family: 'Fredoka', sans-serif; font-size: var(--text-xl); margin-bottom: var(--space-sm); color: var(--gold); }
+.forest-card-text { font-size: var(--text-sm); color: rgba(255,255,255,0.8); line-height: 1.8; }
+
+.community-section { background: var(--nordic-white); }
+.community-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lg); max-width: 1100px; margin: 0 auto; }
+.community-card {
+  background: var(--nordic-white); border-radius: var(--radius-lg); padding: 30px;
+  box-shadow: 0 4px 20px var(--shadow); transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease;
+  border: 1px solid var(--nordic-linen);
+}
+.community-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow-strong); }
+.community-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.community-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold-pale); flex-shrink: 0; }
+.community-name { font-weight: 600; color: var(--forest-dark); font-size: var(--text-base); }
+.community-date { font-size: var(--text-xs); color: var(--text-light); margin-top: 2px; }
+.community-stars { color: var(--gold); margin-bottom: var(--space-sm); font-size: var(--text-sm); }
+.community-text { font-size: var(--text-sm); color: var(--text-mid); line-height: 1.7; margin-bottom: 14px; }
+.community-images { display: flex; gap: 8px; }
+.community-images img { width: 64px; height: 64px; border-radius: var(--radius-sm); object-fit: cover; }
+
+.newsletter-section {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 50%, #3D7A3D 100%);
+  text-align: center; padding: var(--space-4xl) 5%;
+  position: relative; overflow: hidden;
+}
+.newsletter-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(212,176,76,0.08) 0%, transparent 50%);
+}
+.newsletter-section .section-title { color: var(--nordic-white); }
+.newsletter-section .section-subtitle { color: var(--forest-pale); }
+.newsletter-form { display: flex; gap: var(--space-sm); justify-content: center; margin-top: 32px; flex-wrap: wrap; position: relative; z-index: 1; }
+.newsletter-input {
+  padding: 16px 28px; border-radius: var(--radius-xl);
+  border: 2px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.1); color: var(--nordic-white); font-size: 1rem;
+  min-width: 300px; outline: none; transition: border-color 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.newsletter-input::placeholder { color: rgba(255,255,255,0.55); }
+.newsletter-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.15); }
+.newsletter-input.error { border-color: #E57373; }
+.newsletter-submit {
+  padding: 16px 36px; border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--gold), var(--wood-light));
+  color: var(--forest-dark); font-weight: 600; border: none; cursor: pointer;
+  font-size: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; letter-spacing: 0.5px;
+}
+.newsletter-submit:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(212,176,76,0.4); }
+.newsletter-submit:active { transform: translateY(-1px); }
+
+.footer { background: var(--forest-dark); padding: var(--space-3xl) 5% 30px; position: relative; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; max-width: 1100px; margin: 0 auto 50px; }
+.footer-brand .logo { color: var(--nordic-white); margin-bottom: 16px; display: inline-flex; }
+.footer-brand p { color: rgba(255,255,255,0.65); font-size: var(--text-sm); margin-top: 16px; line-height: 1.8; }
+.footer-title { font-family: 'Fredoka', sans-serif; font-size: var(--text-lg); margin-bottom: var(--space-md); color: var(--gold); letter-spacing: 0.5px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: var(--space-sm); }
+.footer-links a { color: rgba(255,255,255,0.65); font-size: var(--text-sm); transition: color 0.3s, padding-left 0.3s; display: inline-block; }
+.footer-links a:hover { color: var(--gold); padding-left: 4px; }
+.footer-social { display: flex; gap: 14px; margin-top: var(--space-md); }
+.footer-social a {
+  width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--nordic-white); transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.footer-social a:hover { background: var(--gold); color: var(--forest-dark); border-color: var(--gold); transform: translateY(-3px); }
+.footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-size: var(--text-sm); }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-spring), transform 0.8s var(--ease-spring); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-stagger-1 { transition-delay: 0.1s; }
+.reveal-stagger-2 { transition-delay: 0.2s; }
+.reveal-stagger-3 { transition-delay: 0.3s; }
+.reveal-stagger-4 { transition-delay: 0.4s; }
+
+@media (max-width: 1024px) {
+  .story-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .char-grid { grid-template-columns: repeat(2, 1fr); }
+  .forest-grid { grid-template-columns: repeat(2, 1fr); }
+  .community-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .char-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .forest-grid { grid-template-columns: 1fr; max-width: 500px; }
+  .community-grid { grid-template-columns: 1fr; max-width: 500px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .section { padding: var(--space-3xl) 5%; }
+  .hero-title { font-size: 2.5rem; }
+  .newsletter-input { min-width: 0; width: 100%; }
+  .hero-content .hero-desc br { display: none; }
+  .series-grid { gap: 16px; }
+}
+@media (max-width: 480px) {
+  :root {
+    --space-4xl: 60px;
+    --space-3xl: 50px;
+  }
+  .stats-grid { gap: 20px; }
+  .series-grid { grid-template-columns: 1fr; }
+  .stat-number { font-size: 2rem; }
+  .hero-desc { font-size: var(--text-base); }
+  .story-wrap { gap: 28px; }
+  .community-card { padding: 22px; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+<nav class="navbar" id="navbar" aria-label="主导航">
+  <a href="#" class="logo" aria-label="LABUBU 首页">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYm9keUdyYWQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0Q0QTU3NCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNDNDk0NjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImZhY2VHcmFkIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGMEQ0QjgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRThDNEEwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MCw1MCkiPgogICAgPGVsbGlwc2UgY3g9Ii0yMSIgY3k9Ii0yNyIgcng9IjEwIiByeT0iMTYiIGZpbGw9InVybCgjYm9keUdyYWQpIiB0cmFuc2Zvcm09InJvdGF0ZSgtMjAgLTIxIC0yNykiLz4KICAgIDxlbGxpcHNlIGN4PSItMjEiIGN5PSItMjUiIHJ4PSI1IiByeT0iOSIgZmlsbD0idXJsKCNmYWNlR3JhZCkiIHRyYW5zZm9ybT0icm90YXRlKC0yMCAtMjEgLTI1KSIvPgogICAgPGVsbGlwc2UgY3g9IjIxIiBjeT0iLTI3IiByeD0iMTAiIHJ5PSIxNiIgZmlsbD0idXJsKCNib2R5R3JhZCkiIHRyYW5zZm9ybT0icm90YXRlKDIwIDIxIC0yNykiLz4KICAgIDxlbGxpcHNlIGN4PSIyMSIgY3k9Ii0yNSIgcng9IjUiIHJ5PSI5IiBmaWxsPSJ1cmwoI2ZhY2VHcmFkKSIgdHJhbnNmb3JtPSJyb3RhdGUoMjAgMjEgLTI1KSIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIyIiByeD0iMzIiIHJ5PSIzMCIgZmlsbD0idXJsKCNib2R5R3JhZCkiLz4KICAgIDxlbGxpcHNlIGN4PSIwIiBjeT0iNyIgcng9IjI0IiByeT0iMjAiIGZpbGw9InVybCgjZmFjZUdyYWQpIi8+CiAgICA8Y2lyY2xlIGN4PSItMTMiIGN5PSItMiIgcj0iNC41IiBmaWxsPSIjMkQxRjBGIi8+CiAgICA8Y2lyY2xlIGN4PSIxMyIgY3k9Ii0yIiByPSI0LjUiIGZpbGw9IiMyRDFGMEYiLz4KICAgIDxjaXJjbGUgY3g9Ii0xMS41IiBjeT0iLTMuNSIgcj0iMS41IiBmaWxsPSIjRkZGIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxjaXJjbGUgY3g9IjE0LjUiIGN5PSItMy41IiByPSIxLjUiIGZpbGw9IiNGRkYiIG9wYWNpdHk9IjAuOSIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSI2IiByeD0iMy41IiByeT0iMi41IiBmaWxsPSIjQjg4NDVBIi8+CiAgICA8cGF0aCBkPSJNIC0xOCAxMCBRIC04IDIzIDAgMjMgUSA4IDIzIDE4IDEwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyRDFGMEYiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxyZWN0IHg9Ii04IiB5PSIxMCIgd2lkdGg9IjciIGhlaWdodD0iNSIgcng9IjEuNSIgZmlsbD0iI0ZGRiIgc3Ryb2tlPSIjMkQxRjBGIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPHJlY3QgeD0iMSIgeT0iMTAiIHdpZHRoPSI3IiBoZWlnaHQ9IjUiIHJ4PSIxLjUiIGZpbGw9IiNGRkYiIHN0cm9rZT0iIzJEMUYwRiIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDxlbGxpcHNlIGN4PSItMjQiIGN5PSI2IiByeD0iNiIgcnk9IjMuNSIgZmlsbD0iI0U4QTBBMCIgb3BhY2l0eT0iMC4zNSIvPgogICAgPGVsbGlwc2UgY3g9IjI0IiBjeT0iNiIgcng9IjYiIHJ5PSIzLjUiIGZpbGw9IiNFOEEwQTAiIG9wYWNpdHk9IjAuMzUiLz4KICA8L2c+Cjwvc3ZnPg==" class="logo-img" alt="LABUBU" width="44" height="44">
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="#story" data-section="story">精灵传说</a></li>
+    <li><a href="#characters" data-section="characters">精灵图鉴</a></li>
+    <li><a href="#series" data-section="series">盲盒系列</a></li>
+    <li><a href="#forest" data-section="forest">森林物语</a></li>
+    <li><a href="#community" data-section="community">精灵访客</a></li>
+  </ul>
+  <div class="hamburger" id="hamburgerBtn" aria-label="打开菜单" role="button" tabindex="0"><i class="fas fa-bars" aria-hidden="true"></i></div>
+</nav>
+
+<div class="overlay" id="overlay" aria-hidden="true"></div>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="导航菜单">
+  <div class="mobile-close" id="mobileClose" aria-label="关闭菜单" role="button" tabindex="0"><i class="fas fa-times" aria-hidden="true"></i></div>
+  <a href="#story">精灵传说</a>
+  <a href="#characters">精灵图鉴</a>
+  <a href="#series">盲盒系列</a>
+  <a href="#forest">森林物语</a>
+  <a href="#community">精灵访客</a>
+</div>
+
+<main id="main-content">
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg">
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=85" alt="北欧精灵森林" width="1920" height="1080">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-label">泡泡玛特 · 精灵森林</div>
+      <h1 class="hero-title">欢迎来到 <span>The Monsters</span><br>精灵森林</h1>
+      <p class="hero-desc">在遥远的北欧森林深处，住着一群长着尖耳朵、咧着大嘴巴笑嘻嘻的小精灵。<br>他们有着毛茸茸的身体、淘气的性格和温暖的心。</p>
+      <div class="hero-buttons">
+        <a href="#series" class="btn btn-primary">开启奇遇</a>
+        <a href="#story" class="btn btn-outline">了解传说</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>向下探索</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <section class="stats-section" aria-label="数据统计">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">精灵系列</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number">300+</div>
+        <div class="stat-label">精灵造型</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number">80+</div>
+        <div class="stat-label">覆盖国家</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number">10M+</div>
+        <div class="stat-label">森林粉丝</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section story-section" id="story" aria-label="精灵传说">
+    <div class="section-header reveal">
+      <div class="section-label">关于精灵</div>
+      <h2 class="section-title">精灵森林的传说</h2>
+      <p class="section-subtitle">由香港艺术家龙家昇（Kasing Lung）于2015年创作的奇幻世界，灵感源自北欧民间传说</p>
+    </div>
+    <div class="story-wrap reveal">
+      <div class="story-img">
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=800&q=80" alt="精灵森林深处" width="800" height="533" loading="lazy">
+      </div>
+      <div class="story-content">
+        <h3>一个关于精灵与森林的故事</h3>
+        <p>LABUBU 的故事始于香港艺术家龙家昇（Kasing Lung）的笔下。他受北欧民间传说启发，创造了这群生活在森林深处的精灵——The Monsters。他们看起来有点吓人，但内心善良、乐于助人。</p>
+        <p>每一只精灵都有独特的性格和外貌：有的调皮捣蛋，有的温柔内敛，有的爱幻想，有的爱派对。他们在森林里建造蘑菇小屋、开设甜品工坊、举办月光音乐会，过着无忧无虑的生活。</p>
+        <p>2015年首次推出以来，The Monsters 系列已经成长为全球最受欢迎的潮玩 IP 之一，从盲盒到毛绒玩具，从钥匙扣到大型摆件，每一个系列都让粉丝们欲罢不能。</p>
+        <div class="story-tags">
+          <span class="story-tag">北欧灵感</span>
+          <span class="story-tag">手工质感</span>
+          <span class="story-tag">独特设计</span>
+          <span class="story-tag">全球收藏</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section char-section" id="characters" aria-label="精灵图鉴">
+    <div class="section-header reveal">
+      <div class="section-label">精灵图鉴</div>
+      <h2 class="section-title">认识 The Monsters 家族</h2>
+      <p class="section-subtitle">每一只精灵都有自己的故事，等待被你发现</p>
+    </div>
+    <div class="char-grid">
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/d/da/Labubu-Characters-Step-1.jpg/v4-460px-Labubu-Characters-Step-1.jpg" alt="LABUBU - 淘气精灵女主角" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">LABUBU</h3>
+          <p class="char-card-role">淘气明星 · 女主角</p>
+          <p class="char-card-desc">整个系列最著名的主角！尖耳朵、毛茸茸的身体和标志性的九颗锯齿牙。乐于助人但经常帮倒忙，内心善良却总爱恶作剧。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">女生</span>
+            <span class="char-card-tag">九颗锯齿牙</span>
+            <span class="char-card-tag">无尾巴</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/7/71/Labubu-Characters-Step-2.jpg/v4-460px-Labubu-Characters-Step-2.jpg" alt="ZIMOMO - 部落首领" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">ZIMOMO</h3>
+          <p class="char-card-role">温柔领袖 · 大家长</p>
+          <p class="char-card-desc">The Monsters 部落的首领，体型是 Labubu 的两倍大。冷静、温和、内敛，用宽厚的肩膀为所有成员遮风挡雨，是家族中最可靠的守护者。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">男生</span>
+            <span class="char-card-tag">尖刺尾巴</span>
+            <span class="char-card-tag">部落首领</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/b/bf/Labubu-Characters-Step-3.jpg/v4-460px-Labubu-Characters-Step-3.jpg" alt="MOKOKO - 粉色稀有精灵" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">MOKOKO</h3>
+          <p class="char-card-role">粉色特别精灵 · 最稀有</p>
+          <p class="char-card-desc">天生粉色毛发、白色肚皮、卷翘睫毛和桃心形鼻子。仅在北京 Pop Land 主题乐园发售，某次发售12分钟内即告罄。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">女生</span>
+            <span class="char-card-tag">心形鼻子</span>
+            <span class="char-card-tag">超稀有</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/6/69/Labubu-Characters-Step-4.jpg/v4-460px-Labubu-Characters-Step-4.jpg" alt="TYCOCO - 骷髅男友" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">TYCOCO</h3>
+          <p class="char-card-role">骷髅乐天派 · Labubu男友</p>
+          <p class="char-card-desc">Labubu 的男朋友，一个骷髅外形的素食主义者。对 Labubu 无限包容，即使她的恶作剧有点过火也从不生气。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">男生</span>
+            <span class="char-card-tag">骷髅外形</span>
+            <span class="char-card-tag">素食主义</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/3/3e/Labubu-Characters-Step-5.jpg/v4-460px-Labubu-Characters-Step-5.jpg" alt="SPOOKY - 雪人精灵" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">SPOOKY</h3>
+          <p class="char-card-role">好奇雪人 · 夜游精灵</p>
+          <p class="char-card-desc">住在森林深处的雪人精灵，头部因独特的褶皱被形容为像饺子一样。只在夜间出没，害怕阳光却又爱凑热闹。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">雪人</span>
+            <span class="char-card-tag">夜间出没</span>
+            <span class="char-card-tag">饺子头</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/f/ff/Labubu-Characters-Step-6.jpg/v4-460px-Labubu-Characters-Step-6.jpg" alt="PATO - 垂耳梦想家" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">PATO</h3>
+          <p class="char-card-role">垂耳梦想家 · 紫皮精灵</p>
+          <p class="char-card-desc">家族中的乐观梦想家，标志性的大大下垂耳朵和紫色皮肤。爱幻想，经常冒出各种鬼点子，总能给大家带来欢笑。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">垂耳</span>
+            <span class="char-card-tag">紫色皮肤</span>
+            <span class="char-card-tag">爱幻想</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/d/d3/Labubu-Characters-Step-7.jpg/v4-460px-Labubu-Characters-Step-7.jpg" alt="PIPPO - 河流派对精灵" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">PIPPO</h3>
+          <p class="char-card-role">河流精灵 · 派对达人</p>
+          <p class="char-card-desc">住在河道里的自由精灵，有一对向两侧伸展的大耳朵。幽默风趣、热爱派对，经常邀请 Labubu 们参加酒会。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">大耳朵</span>
+            <span class="char-card-tag">爱派对</span>
+            <span class="char-card-tag">河流精灵</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/c/c6/Labubu-Characters-Step-8.jpg/v4-460px-Labubu-Characters-Step-8.jpg" alt="YAYA - 迷路探险家" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">YAYA</h3>
+          <p class="char-card-role">深山迷路精灵 · 探险家</p>
+          <p class="char-card-desc">居住于深山中的精灵，头顶尖尖的犄角。精力无限、天真可爱，却是个十足的路痴。一次误打误撞走进 Labubu 村庄后便决定留下。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">尖犄角</span>
+            <span class="char-card-tag">路痴</span>
+            <span class="char-card-tag">探险家</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-card reveal">
+        <div class="char-card-img">
+          <img src="https://www.wikihow.com/images/thumb/5/57/Labubu-Characters-Step-9.jpg/v4-460px-Labubu-Characters-Step-9.jpg" alt="VOS - 社交小熊" width="460" height="460" loading="lazy">
+        </div>
+        <div class="char-card-body">
+          <h3 class="char-card-name">VOS</h3>
+          <p class="char-card-role">社交达人 · Tycoco表哥</p>
+          <p class="char-card-desc">Tycoco 的表哥，外形像毛茸茸的小熊。性格活泼好动、喜欢社交，认识森林里每一个生物，是大家公认的消息灵通人士。</p>
+          <div class="char-card-tags">
+            <span class="char-card-tag">熊状</span>
+            <span class="char-card-tag">外向</span>
+            <span class="char-card-tag">Tycoco表哥</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section series-section" id="series" aria-label="盲盒系列">
+    <div class="section-header reveal">
+      <div class="section-label">盲盒系列</div>
+      <h2 class="section-title">召唤你的精灵</h2>
+      <p class="section-subtitle">超过300种不同颜色、形状和尺寸的精灵等待被发现</p>
+    </div>
+    <div class="series-tabs reveal" id="seriesTabs" role="tablist" aria-label="系列筛选">
+      <button class="series-tab active" data-filter="all" role="tab" aria-selected="true">全部精灵</button>
+      <button class="series-tab" data-filter="classic" role="tab" aria-selected="false">经典系列</button>
+      <button class="series-tab" data-filter="new" role="tab" aria-selected="false">新品上市</button>
+      <button class="series-tab" data-filter="limited" role="tab" aria-selected="false">限定珍藏</button>
+      <button class="series-tab" data-filter="collab" role="tab" aria-selected="false">联名系列</button>
+    </div>
+    <div class="series-grid" id="seriesGrid" role="tabpanel"></div>
+  </section>
+
+  <section class="section forest-section" id="forest" aria-label="森林物语">
+    <div class="section-header reveal">
+      <div class="section-label">森林秘境</div>
+      <h2 class="section-title">精灵们的北欧森林</h2>
+      <p class="section-subtitle">在龙家昇先生的笔下，北欧森林是这些小精灵的家——这里有蘑菇小屋、梦幻花园、棉花糖云海</p>
+    </div>
+    <div class="forest-grid">
+      <div class="forest-card reveal">
+        <div class="forest-card-icon"><i class="fas fa-home" aria-hidden="true" style="color:var(--gold);"></i></div>
+        <h3 class="forest-card-title">蘑菇小屋</h3>
+        <p class="forest-card-text">Labubu 们住在森林深处的蘑菇小屋里，屋顶上长满青苔，烟囱里飘出甜甜的烤面包香气。清晨，露珠会顺着蘑菇伞滑落到窗台——那是精灵们最喜爱的天然闹钟。</p>
+      </div>
+      <div class="forest-card reveal">
+        <div class="forest-card-icon"><i class="fas fa-seedling" aria-hidden="true" style="color:var(--forest-light);"></i></div>
+        <h3 class="forest-card-title">梦幻花园</h3>
+        <p class="forest-card-text">在森林的边缘，有一片永远绽放着花朵的秘密花园。Mokoko 最喜欢在这里跳舞，她的脚步所及之处，花朵会随之绽放。</p>
+      </div>
+      <div class="forest-card reveal">
+        <div class="forest-card-icon"><i class="fas fa-cloud" aria-hidden="true" style="color:var(--gold-pale);"></i></div>
+        <h3 class="forest-card-title">棉花糖云海</h3>
+        <p class="forest-card-text">每当夕阳西下，森林上方的云海会变成棉花糖般的粉色。Zimomo 会带着大家爬上最高的树顶，一边看日落一边分享森林里最新鲜的浆果。</p>
+      </div>
+      <div class="forest-card reveal">
+        <div class="forest-card-icon"><i class="fas fa-cookie-bite" aria-hidden="true" style="color:var(--wood-light);"></i></div>
+        <h3 class="forest-card-title">甜品工坊</h3>
+        <p class="forest-card-text">Tycoco 的甜品工坊是森林里最受欢迎的地方。虽然他是个骷髅，但做出的马卡龙和焦糖布丁却是最棒的！每个精灵都会带着自己采集的食材来交换甜品。</p>
+      </div>
+      <div class="forest-card reveal">
+        <div class="forest-card-icon"><i class="fas fa-star" aria-hidden="true" style="color:var(--gold);"></i></div>
+        <h3 class="forest-card-title">星空许愿池</h3>
+        <p class="forest-card-text">森林深处有一口古老的许愿池，传说在满月之夜投下一片落叶，愿望就会实现。Labubu 每次都会许同一个愿望——希望所有的精灵都能永远快乐地生活在一起。</p>
+      </div>
+      <div class="forest-card reveal">
+        <div class="forest-card-icon"><i class="fas fa-music" aria-hidden="true" style="color:var(--gold-pale);"></i></div>
+        <h3 class="forest-card-title">精灵音乐会</h3>
+        <p class="forest-card-text">每月一次的森林音乐会是最盛大的聚会。Pippo 负责打鼓，Pato 吹奏他自制的长笛，Yaya 唱歌虽然有点跑调但大家都爱听——这是属于精灵们最快乐的时刻。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section community-section" id="community" aria-label="精灵访客评价">
+    <div class="section-header reveal">
+      <div class="section-label">精灵访客</div>
+      <h2 class="section-title">来自森林的声音</h2>
+      <p class="section-subtitle">全球粉丝与精灵们的温暖故事</p>
+    </div>
+    <div class="community-grid">
+      <div class="community-card reveal">
+        <div class="community-header">
+          <img class="community-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Mika Tanaka 头像" width="48" height="48" loading="lazy">
+          <div>
+            <div class="community-name">Mika Tanaka</div>
+            <div class="community-date">东京 · 2026.05</div>
+          </div>
+        </div>
+        <div class="community-stars" aria-label="5星评价"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+        <p class="community-text">"在东京银座泡泡玛特门店看到了 LABUBU，一眼就爱上了！做工精致，配色高级，和朋友一起买了好多盒，每次都有惊喜！"</p>
+        <div class="community-images">
+          <img src="https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?w=100&q=80" alt="" width="64" height="64" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=100&q=80" alt="" width="64" height="64" loading="lazy">
+        </div>
+      </div>
+      <div class="community-card reveal">
+        <div class="community-header">
+          <img class="community-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Sarah Lee 头像" width="48" height="48" loading="lazy">
+          <div>
+            <div class="community-name">Sarah Lee</div>
+            <div class="community-date">首尔 · 2026.05</div>
+          </div>
+        </div>
+        <div class="community-stars" aria-label="4.5星评价"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i></div>
+        <p class="community-text">"Macaron 系列是我的入坑款，粉粉嫩嫩的配色太治愈了！放在桌上每次看到都会微笑。LABUBU 就是快乐本身！"</p>
+        <div class="community-images">
+          <img src="https://images.unsplash.com/photo-1596460107916-430662021049?w=100&q=80" alt="" width="64" height="64" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=100&q=80" alt="" width="64" height="64" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=100&q=80" alt="" width="64" height="64" loading="lazy">
+        </div>
+      </div>
+      <div class="community-card reveal">
+        <div class="community-header">
+          <img class="community-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Emma Chen 头像" width="48" height="48" loading="lazy">
+          <div>
+            <div class="community-name">Emma Chen</div>
+            <div class="community-date">上海 · 2026.04</div>
+          </div>
+        </div>
+        <div class="community-stars" aria-label="5星评价"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+        <p class="community-text">"第一次拆盲盒就抽到了隐藏款！那种心跳加速的感觉太棒了。现在家里已经摆满了各种 LABUBU，每天回家看到它们心情都变好了。"</p>
+        <div class="community-images">
+          <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=100&q=80" alt="" width="64" height="64" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1578632292335-df3abbb0d586?w=100&q=80" alt="" width="64" height="64" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-section" id="newsletter" aria-label="邮件订阅">
+    <div class="section-header reveal">
+      <div class="section-label">精灵来信</div>
+      <h2 class="section-title">收到来自精灵森林的邀请函</h2>
+      <p class="section-subtitle">订阅即可获得新品首发通知、限定款抢购提醒和专属森林福利</p>
+    </div>
+    <form class="newsletter-form reveal" id="newsletterForm" novalidate>
+      <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="输入你的邮箱地址..." required aria-label="邮箱地址">
+      <button type="submit" class="newsletter-submit" id="newsletterBtn">加入森林</button>
+    </form>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo" aria-label="The Monsters 首页">
+        <img src="https://images.unsplash.com/photo-1549482199-bc1ca6f58502?w=80&q=80&fit=crop" class="logo-img" alt="" width="36" height="36">
+        The Monsters
+      </a>
+      <p>由龙家昇（Kasing Lung）创作的精灵世界，泡泡玛特（POP MART）出品。每一只精灵都有自己的故事，等待被你发现。</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+        <a href="#" aria-label="微博"><i class="fab fa-weibo" aria-hidden="true"></i></a>
+        <a href="#" aria-label="微信"><i class="fab fa-weixin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-title">探索</h4>
+      <ul class="footer-links">
+        <li><a href="#story">精灵传说</a></li>
+        <li><a href="#characters">精灵图鉴</a></li>
+        <li><a href="#series">盲盒系列</a></li>
+        <li><a href="#forest">森林物语</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-title">支持</h4>
+      <ul class="footer-links">
+        <li><a href="#">帮助中心</a></li>
+        <li><a href="#">订单追踪</a></li>
+        <li><a href="#">退换政策</a></li>
+        <li><a href="#">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-title">关于</h4>
+      <ul class="footer-links">
+        <li><a href="#">品牌故事</a></li>
+        <li><a href="#">艺术家</a></li>
+        <li><a href="#">可持续发展</a></li>
+        <li><a href="#">招贤纳士</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>"在北欧森林的深处，精灵们正在等待与你相遇。"</p>
+    <p style="margin-top:8px;">The Monsters · POP MART. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+var canvas = document.getElementById('particleCanvas');
+var ctx = canvas.getContext('2d');
+var particles = [];
+var W, H;
+var animFrame;
+
+function resizeCanvas() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+var resizeTimer;
+function debouncedResize() {
+  cancelAnimationFrame(animFrame);
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function() {
+    resizeCanvas();
+    animFrame = requestAnimationFrame(animate);
+  }, 150);
+}
+window.addEventListener('resize', debouncedResize);
+resizeCanvas();
+
+function Particle(type) {
+  this.type = type;
+  this.reset();
+}
+Particle.prototype.reset = function() {
+  this.x = Math.random() * W;
+  this.y = -20 - Math.random() * 60;
+  this.size = 4 + Math.random() * 10;
+  this.speedY = 1 + Math.random() * 2;
+  this.speedX = -0.6 + Math.random() * 1.2;
+  this.rotation = Math.random() * Math.PI * 2;
+  this.rotSpeed = (Math.random() - 0.5) * 0.04;
+  this.opacity = 0.5 + Math.random() * 0.5;
+  this.sway = Math.random() * 2;
+  this.swaySpeed = 0.01 + Math.random() * 0.02;
+  this.swayOffset = Math.random() * Math.PI * 2;
+  this.life = 0;
+  if (this.type === 'leaf') {
+    this.color = ['#5A9E5A', '#3D7A3D', '#6B8F4A', '#8B6914', '#C4A23C', '#8CBA8C'][Math.floor(Math.random() * 6)];
+    this.size = 8 + Math.random() * 12;
+  } else if (this.type === 'petal') {
+    this.color = ['#F0E2BC', '#F7E8D0', '#E8C8C8', '#FFE4E1', '#FFF0F5'][Math.floor(Math.random() * 5)];
+    this.size = 4 + Math.random() * 7;
+    this.speedY *= 0.7;
+    this.speedX *= 1.3;
+  } else {
+    this.color = ['#D4B04C', '#F0E2BC', '#FFFFFF', '#FFD700'][Math.floor(Math.random() * 4)];
+    this.size = 2 + Math.random() * 4;
+    this.speedY *= 0.3;
+    this.speedX *= 0.5;
+    this.opacity = 0.3 + Math.random() * 0.7;
+  }
+};
+Particle.prototype.update = function() {
+  this.life++;
+  this.x += this.speedX + Math.sin(this.life * this.swaySpeed + this.swayOffset) * this.sway * 0.3;
+  this.y += this.speedY;
+  this.rotation += this.rotSpeed;
+  if (this.type === 'sparkle') {
+    this.opacity = 0.3 + Math.sin(this.life * 0.05) * 0.5;
+  }
+  if (this.y > H + 40 || this.x < -40 || this.x > W + 40) {
+    this.y = -20 - Math.random() * 60;
+    this.x = Math.random() * W;
+    this.life = 0;
+  }
+};
+Particle.prototype.draw = function() {
+  ctx.save();
+  ctx.translate(this.x, this.y);
+  ctx.rotate(this.rotation);
+  ctx.globalAlpha = this.opacity;
+  if (this.type === 'leaf') {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, this.size * 0.5, this.size * 0.3, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(0, -this.size * 0.3);
+    ctx.lineTo(this.size * 0.6, 0);
+    ctx.lineTo(0, this.size * 0.3);
+    ctx.closePath();
+    ctx.fill();
+  } else if (this.type === 'petal') {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, this.size * 0.3, this.size * 0.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    ctx.fillStyle = this.color;
+    var s = this.size * 0.4;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = this.color;
+    ctx.beginPath();
+    for (var i = 0; i < 4; i++) {
+      var a = i * Math.PI / 2 + this.life * 0.02;
+      ctx.lineTo(Math.cos(a) * s, Math.sin(a) * s);
+      ctx.lineTo(Math.cos(a + Math.PI / 4) * s * 0.3, Math.sin(a + Math.PI / 4) * s * 0.3);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+  ctx.restore();
+};
+
+var particleCount = Math.min(60, Math.floor(W * H / 25000));
+for (var i = 0; i < particleCount; i++) {
+  var type = i < particleCount * 0.4 ? 'leaf' : i < particleCount * 0.75 ? 'petal' : 'sparkle';
+  var p = new Particle(type);
+  p.y = Math.random() * H;
+  particles.push(p);
+}
+
+function animate() {
+  ctx.clearRect(0, 0, W, H);
+  for (var i = 0; i < particles.length; i++) {
+    particles[i].update();
+    particles[i].draw();
+  }
+  animFrame = requestAnimationFrame(animate);
+}
+animFrame = requestAnimationFrame(animate);
+
+var seriesData = [
+  { id: 1, name: 'Fall in Wild', nameEn: 'LABUBU Fall in Wild', category: 'new', count: '12款 + 隐藏款', price: 69, tag: '新品', tagClass: 'tag-new', desc: 'LABUBU 的野外冒险系列，探索北欧森林深处。', img: 'https://www.wikihow.com/images/thumb/1/11/Labubu-Characters-Step-17.jpg/v4-460px-Labubu-Characters-Step-17.jpg' },
+  { id: 2, name: '心动马卡龙', nameEn: 'LABUBU Exciting Macaron', category: 'classic', count: '12款 + 隐藏款', price: 59, tag: '经典', tagClass: 'tag-classic', desc: '柔和的马卡龙配色，每一只都像一个甜美的梦。', img: 'https://www.wikihow.com/images/thumb/6/61/Labubu-Characters-Step-12.jpg/v4-460px-Labubu-Characters-Step-12.jpg' },
+  { id: 3, name: 'Hello Kitty 联名', nameEn: 'LABUBU x Hello Kitty', category: 'collab', count: '12款 + 隐藏款', price: 89, tag: '联名', tagClass: 'tag-collab', desc: 'LABUBU 与 Hello Kitty 的跨界奇遇，可爱加倍！', img: 'https://www.wikihow.com/images/thumb/9/9a/Labubu-Characters-Step-20.jpg/v4-460px-Labubu-Characters-Step-20.jpg' },
+  { id: 4, name: '美食诱惑', nameEn: 'LABUBU Tasty Series', category: 'classic', count: '12款 + 隐藏款', price: 59, tag: '经典', tagClass: 'tag-classic', desc: '以世界各地美食为灵感，每一口都是惊喜。', img: 'https://www.wikihow.com/images/thumb/5/51/Labubu-Characters-Step-11.jpg/v4-460px-Labubu-Characters-Step-11.jpg' },
+  { id: 5, name: 'Zimomo 十周年', nameEn: 'Zimomo 10th Anniversary', category: 'limited', count: '限定款', price: 129, tag: '限定', tagClass: 'tag-limited', desc: '庆祝 Zimomo 诞生十周年的特别限定款。', img: 'https://www.wikihow.com/images/thumb/4/4c/Labubu-Characters-Step-19.jpg/v4-460px-Labubu-Characters-Step-19.jpg' },
+  { id: 6, name: '森林童话', nameEn: 'LABUBU Forest Fairy Tale', category: 'new', count: '12款 + 隐藏款', price: 69, tag: '新品', tagClass: 'tag-new', desc: '走进精灵森林的童话世界，与 LABUBU 一起冒险。', img: 'https://www.wikihow.com/images/thumb/e/e4/Labubu-Characters-Step-13.jpg/v4-460px-Labubu-Characters-Step-13.jpg' },
+  { id: 7, name: '万圣节南瓜', nameEn: 'LABUBU Halloween Pumpkin', category: 'limited', count: '限定款', price: 89, tag: '限定', tagClass: 'tag-limited', desc: '万圣节特别限定款，Spooky 也会爱上的南瓜精灵。', img: 'https://www.wikihow.com/images/thumb/5/5b/Labubu-Characters-Step-14.jpg/v4-460px-Labubu-Characters-Step-14.jpg' },
+  { id: 8, name: '可口可乐联名', nameEn: 'LABUBU x Coca-Cola', category: 'collab', count: '12款 + 隐藏款', price: 79, tag: '联名', tagClass: 'tag-collab', desc: 'LABUBU 与可口可乐的跨界奇遇，快乐冒泡！', img: 'https://www.wikihow.com/images/thumb/2/24/Labubu-Characters-Step-15.jpg/v4-460px-Labubu-Characters-Step-15.jpg' }
+];
+
+function renderSeries(filter) {
+  filter = filter || 'all';
+  var grid = document.getElementById('seriesGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  var filtered = filter === 'all' ? seriesData : seriesData.filter(function(s) { return s.category === filter; });
+  filtered.forEach(function(s, idx) {
+    var card = document.createElement('div');
+    card.className = 'series-card reveal';
+    card.style.transitionDelay = ((idx % 4) * 0.1) + 's';
+    card.innerHTML = '<div class="series-card-img"><img src="' + s.img + '" alt="' + s.name + '" loading="lazy" width="460" height="460"><span class="series-card-tag ' + s.tagClass + '">' + s.tag + '</span></div><div class="series-card-body"><h3 class="series-card-name">' + s.name + '</h3><p class="series-card-en">' + s.nameEn + '</p><div class="series-card-meta"><span class="series-card-count"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> ' + s.count + '</span><span class="series-card-price">\u00a5' + s.price + '</span></div><p class="series-card-desc">' + s.desc + '</p></div>';
+    grid.appendChild(card);
+  });
+  grid.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
+}
+
+document.querySelectorAll('.series-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.series-tab').forEach(function(t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    renderSeries(tab.dataset.filter);
+  });
+});
+
+var navbar = document.getElementById('navbar');
+var scrollTicking = false;
+window.addEventListener('scroll', function() {
+  if (!scrollTicking) {
+    requestAnimationFrame(function() {
+      var scrollY = window.scrollY;
+      navbar.classList.toggle('scrolled', scrollY > 60);
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+});
+
+var heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  window.addEventListener('scroll', function() {
+    var offset = window.scrollY * 0.3;
+    heroBg.style.transform = 'translateY(' + offset + 'px)';
+  }, { passive: true });
+}
+
+var revealEls = document.querySelectorAll('.reveal');
+var revealObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(function(el) { revealObs.observe(el); });
+
+var sectionIds = ['story', 'characters', 'series', 'forest', 'community'];
+var navLinks = document.querySelectorAll('.nav-links a');
+var navScrollTicking = false;
+window.addEventListener('scroll', function() {
+  if (!navScrollTicking) {
+    requestAnimationFrame(function() {
+      var scrollY = window.scrollY + 120;
+      var current = '';
+      sectionIds.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      });
+      navLinks.forEach(function(link) {
+        link.classList.toggle('active', link.dataset.section === current);
+      });
+      navScrollTicking = false;
+    });
+    navScrollTicking = true;
+  }
+}, { passive: true });
+
+var hamburgerBtn = document.getElementById('hamburgerBtn');
+var mobileMenu = document.getElementById('mobileMenu');
+var mobileClose = document.getElementById('mobileClose');
+var overlay = document.getElementById('overlay');
+
+function openMobile() {
+  mobileMenu.classList.add('active');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobile() {
+  mobileMenu.classList.remove('active');
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobile);
+if (mobileClose) mobileClose.addEventListener('click', closeMobile);
+if (overlay) overlay.addEventListener('click', closeMobile);
+mobileMenu.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', closeMobile);
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMobile();
+});
+
+var newsletterForm = document.getElementById('newsletterForm');
+var newsletterEmail = document.getElementById('newsletterEmail');
+var newsletterBtn = document.getElementById('newsletterBtn');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = newsletterEmail.value.trim();
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      newsletterEmail.classList.add('error');
+      newsletterEmail.focus();
+      return;
+    }
+    newsletterEmail.classList.remove('error');
+    var originalText = newsletterBtn.textContent;
+    newsletterBtn.textContent = '欢迎加入森林！';
+    newsletterBtn.disabled = true;
+    setTimeout(function() {
+      newsletterBtn.textContent = originalText;
+      newsletterBtn.disabled = false;
+      newsletterForm.reset();
+    }, 3000);
+  });
+  newsletterEmail.addEventListener('input', function() {
+    this.classList.remove('error');
+  });
+}
+
+renderSeries();
+</script>
+</body>
+</html>
