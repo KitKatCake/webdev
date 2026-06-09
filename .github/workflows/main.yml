@@ -70,14 +70,15 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha,prefix={{branch}}-
-            type=raw,value=test
+            type=raw,value=dev
+            type=raw,value=test,enable={{is_default_branch}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: ${{ github.event_name == 'push' }}
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:dev
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -85,7 +86,7 @@ jobs:
 
       - name: Image digest
         if: github.event_name == 'push'
-        run: echo "Image pushed to ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test"
+        run: echo "Image pushed to ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:dev"
 
       - name: Deploy to Alibaba Cloud ECS
         if: github.event_name == 'push'
@@ -99,19 +100,19 @@ jobs:
             echo "=== Docker login to Harbor ==="
             echo "${{ secrets.HARBOR_PASSWORD }}" | docker login ${{ env.REGISTRY }} -u ${{ secrets.HARBOR_USERNAME }} --password-stdin
 
-            echo "=== Pull latest image ==="
-            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test
+            echo "=== Pull latest :dev image ==="
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:dev
 
             echo "=== Stop and remove old container ==="
             docker stop labubu-web 2>/dev/null || true
             docker rm labubu-web 2>/dev/null || true
 
-            echo "=== Run new container ==="
+            echo "=== Run new container (host:3000 -> container:3000) ==="
             docker run -d \
               --name labubu-web \
               -p 3000:3000 \
               --restart always \
-              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:dev
 
             echo "=== Verify deployment ==="
             docker ps | grep labubu-web
