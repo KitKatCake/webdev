@@ -112,6 +112,11 @@ jobs:
       - name: Deploy to Alibaba Cloud ECS
         if: github.event_name == 'push'
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          HARBOR_REGISTRY: ${{ env.REGISTRY }}
+          HARBOR_USERNAME: ${{ secrets.HARBOR_USERNAME }}
+          HARBOR_PASSWORD: ${{ secrets.HARBOR_PASSWORD }}
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
         with:
           host: ${{ env.ECS_HOST }}
           username: root
