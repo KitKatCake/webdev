@@ -107,36 +107,42 @@ jobs:
         run: echo "Image pushed to ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:dev"
 
       - name: Deploy to Alibaba Cloud ECS
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && env.ECS_HOST != ''
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ env.ECS_HOST }}
           username: root
           password: ${{ secrets.ECS_SSH_PASSWORD }}
           port: 22
-        env:
-          HARBOR_REGISTRY: ${{ env.REGISTRY }}
-          HARBOR_USERNAME: ${{ secrets.HARBOR_USERNAME }}
-          HARBOR_PASSWORD: ${{ secrets.HARBOR_PASSWORD }}
+          envs: HARBOR_REGISTRY,HARBOR_USERNAME,HARBOR_PASSWORD,IMAGE_FULL,CONTAINER_NAME
+          command_timeout: 15m
         script: |
           set -euo pipefail
+          IMAGE_FULL="${HARBOR_REGISTRY}/${{ env.IMAGE_NAME }}:dev"
+          CONTAINER_NAME=labubu-web
+
+          if [ -z "${HARBOR_PASSWORD:-}" ] || [ -z "${HARBOR_USERNAME:-}" ]; then
+            echo "::error::HARBOR_USERNAME or HARBOR_PASSWORD secret is empty."
+            exit 1
+          fi
+
           echo "=== Docker login to Harbor ==="
           printf '%s' "${HARBOR_PASSWORD}" | docker login "${HARBOR_REGISTRY}" -u "${HARBOR_USERNAME}" --password-stdin
 
           echo "=== Pull latest :dev image ==="
-          docker pull "${HARBOR_REGISTRY}/${{ env.IMAGE_NAME }}:dev"
+          docker pull "${IMAGE_FULL}"
 
           echo "=== Stop and remove old container ==="
-          docker stop labubu-web 2>/dev/null || true
-          docker rm labubu-web 2>/dev/null || true
+          docker stop "${CONTAINER_NAME}" 2>/dev/null || true
+          docker rm   "${CONTAINER_NAME}" 2>/dev/null || true
 
           echo "=== Run new container (host:3000 -> container:3000) ==="
           docker run -d \
-            --name labubu-web \
+            --name "${CONTAINER_NAME}" \
             -p 3000:3000 \
             --restart always \
-            "${HARBOR_REGISTRY}/${{ env.IMAGE_NAME }}:dev"
+            "${IMAGE_FULL}"
 
           echo "=== Verify deployment ==="
-          docker ps | grep labubu-web
+          docker ps | grep "${CONTAINER_NAME}"
           echo "Deployment completed successfully!"
