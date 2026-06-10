@@ -114,35 +114,35 @@ jobs:
           username: root
           password: ${{ secrets.ECS_SSH_PASSWORD }}
           port: 22
-          envs: HARBOR_REGISTRY,HARBOR_USERNAME,HARBOR_PASSWORD,IMAGE_FULL,CONTAINER_NAME
+          envs: HARBOR_REGISTRY,HARBOR_USERNAME,HARBOR_PASSWORD
           command_timeout: 15m
-        script: |
-          set -euo pipefail
-          IMAGE_FULL="${HARBOR_REGISTRY}/${{ env.IMAGE_NAME }}:dev"
-          CONTAINER_NAME=labubu-web
+          script: |
+            set -euo pipefail
+            IMAGE_FULL="${HARBOR_REGISTRY}/${{ env.IMAGE_NAME }}:dev"
+            CONTAINER_NAME=labubu-web
 
-          if [ -z "${HARBOR_PASSWORD:-}" ] || [ -z "${HARBOR_USERNAME:-}" ]; then
-            echo "::error::HARBOR_USERNAME or HARBOR_PASSWORD secret is empty."
-            exit 1
-          fi
+            if [ -z "${HARBOR_PASSWORD:-}" ] || [ -z "${HARBOR_USERNAME:-}" ]; then
+              echo "::error::HARBOR_USERNAME or HARBOR_PASSWORD secret is empty."
+              exit 1
+            fi
 
-          echo "=== Docker login to Harbor ==="
-          printf '%s' "${HARBOR_PASSWORD}" | docker login "${HARBOR_REGISTRY}" -u "${HARBOR_USERNAME}" --password-stdin
+            echo "=== Docker login to Harbor ==="
+            printf '%s' "${HARBOR_PASSWORD}" | docker login "${HARBOR_REGISTRY}" -u "${HARBOR_USERNAME}" --password-stdin
 
-          echo "=== Pull latest :dev image ==="
-          docker pull "${IMAGE_FULL}"
+            echo "=== Pull latest :dev image ==="
+            docker pull "${IMAGE_FULL}"
 
-          echo "=== Stop and remove old container ==="
-          docker stop "${CONTAINER_NAME}" 2>/dev/null || true
-          docker rm   "${CONTAINER_NAME}" 2>/dev/null || true
+            echo "=== Stop and remove old container ==="
+            docker stop "${CONTAINER_NAME}" 2>/dev/null || true
+            docker rm   "${CONTAINER_NAME}" 2>/dev/null || true
 
-          echo "=== Run new container (host:3000 -> container:3000) ==="
-          docker run -d \
-            --name "${CONTAINER_NAME}" \
-            -p 3000:3000 \
-            --restart always \
-            "${IMAGE_FULL}"
+            echo "=== Run new container (host:3000 -> container:3000) ==="
+            docker run -d \
+              --name "${CONTAINER_NAME}" \
+              -p 3000:3000 \
+              --restart always \
+              "${IMAGE_FULL}"
 
-          echo "=== Verify deployment ==="
-          docker ps | grep "${CONTAINER_NAME}"
-          echo "Deployment completed successfully!"
+            echo "=== Verify deployment ==="
+            docker ps | grep "${CONTAINER_NAME}"
+            echo "Deployment completed successfully!"
