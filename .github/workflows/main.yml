@@ -106,8 +106,20 @@ jobs:
         if: github.event_name == 'push'
         run: echo "Image pushed to ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:dev"
 
+      - name: Validate deploy secrets
+        if: github.event_name == 'push'
+        env:
+          ECS_HOST: ${{ env.ECS_HOST }}
+        run: |
+          echo "ECS_HOST='${ECS_HOST}'"
+          if [ -z "${ECS_HOST}" ]; then
+            echo "::error::ECS_HOST secret is empty. Configure it in Settings → Secrets before deploy can run."
+            exit 1
+          fi
+          echo "ECS_HOST is set, deploy will proceed."
+
       - name: Deploy to Alibaba Cloud ECS
-        if: github.event_name == 'push' && env.ECS_HOST != ''
+        if: github.event_name == 'push'
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ env.ECS_HOST }}
