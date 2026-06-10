@@ -11,11 +11,12 @@ export default function Story() {
       <div className="story-wrap reveal">
         <div className="story-img">
           <img
-            src="https://images.unsplash.com/photo-1511497584788-876760111969?w=800&q=80"
+            src="https://pngimg.com/uploads/labubu/labubu_PNG18.png"
             alt="精灵森林深处"
             width="800"
-            height="533"
+            height="800"
             loading="lazy"
+            style={{ objectFit: 'contain', background: 'linear-gradient(135deg, var(--forest-pale), var(--moss-light))', borderRadius: 'var(--radius-lg)' }}
           />
         </div>
         <div className="story-content">

@@ -5,9 +5,9 @@ export default function Footer() {
         <div className="footer-brand">
           <a href="#" className="logo" aria-label="The Monsters 首页">
             <img
-              src="https://images.unsplash.com/photo-1549482199-bc1ca6f58502?w=80&q=80&fit=crop"
+              src="/labubu-logo.png"
               className="logo-img"
-              alt=""
+              alt="LABUBU"
               width="36"
               height="36"
             />

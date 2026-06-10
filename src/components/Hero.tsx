@@ -11,6 +11,18 @@ export default function Hero() {
       </div>
       <div className="hero-overlay"></div>
       <div className="hero-content">
+        <img
+          src="https://pngimg.com/uploads/labubu/labubu_PNG20.png"
+          alt="LABUBU"
+          width="200"
+          height="200"
+          style={{
+            margin: '0 auto 20px',
+            display: 'block',
+            filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.4))',
+            animation: 'heroFloat 3s ease-in-out infinite',
+          }}
+        />
         <div className="hero-label">泡泡玛特 · 精灵森林</div>
         <h1 className="hero-title">
           欢迎来到 <span>The Monsters</span>
