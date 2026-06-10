@@ -126,15 +126,15 @@ jobs:
           username: root
           password: ${{ secrets.ECS_SSH_PASSWORD }}
           port: 22
-          envs: HARBOR_REGISTRY,HARBOR_USERNAME,HARBOR_PASSWORD
+          envs: HARBOR_REGISTRY,HARBOR_USERNAME,HARBOR_PASSWORD,IMAGE_NAME
           command_timeout: 15m
           script: |
             set -euo pipefail
-            IMAGE_FULL="${HARBOR_REGISTRY}/${{ env.IMAGE_NAME }}:dev"
+            IMAGE_FULL="${HARBOR_REGISTRY}/${IMAGE_NAME}:dev"
             CONTAINER_NAME=labubu-web
 
-            if [ -z "${HARBOR_PASSWORD:-}" ] || [ -z "${HARBOR_USERNAME:-}" ]; then
-              echo "::error::HARBOR_USERNAME or HARBOR_PASSWORD secret is empty."
+            if [ -z "${HARBOR_PASSWORD:-}" ] || [ -z "${HARBOR_USERNAME:-}" ] || [ -z "${HARBOR_REGISTRY:-}" ] || [ -z "${IMAGE_NAME:-}" ]; then
+              echo "::error::One of HARBOR_REGISTRY/HARBOR_USERNAME/HARBOR_PASSWORD/IMAGE_NAME is empty."
               exit 1
             fi
 
